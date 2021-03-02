@@ -1,0 +1,206 @@
+body {
+    display: grid;
+    place-content: center;
+    margin: 0;
+    min-height: 100vh;
+    background-color: hsl(222,50%,80%);
+}
+
+* {
+    transform-style: preserve-3d;
+}
+
+.pane {
+    width: 50vmin;
+    height: 35vmin;
+
+    position: realtive;
+
+    transform:
+        perspective(850px)
+        rotateX(70deg)
+        rotateY(5deg)
+        rotateZ(-50deg);
+
+    background-color: hsl(222,20%,45%);
+}
+
+.coboid {
+    --c-width: 50vmin;
+    --c-height: 35vmin;
+    --c-depth: 2vmin;
+
+    --c-rot: 0deg;
+    --c-rotX: 0deg;
+    --c-rotY: 0deg;
+    --c-rotZ: 0deg;
+
+    --c-transX: 0vmin;
+    --c-transY: 0vmin;
+    --c-transZ: 0vmin;
+
+    --c-clr-top: hsl(222,50%,60%);
+    --c-clr-right: hsl(222,50%,40%);
+    --c-clr-bottom: hsl(222,50%,60%);
+    --c-clr-left: hsl(222,50%,40%);
+    --c-clr-front: hsl(222,50%,50%);
+    --c-clr-back: hsl(222,50%,50%);
+
+    width: var(--c-width);
+    height: var(--c-height);
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform-origin: left top;
+
+    transform:
+        rotate(var(--c-rot))
+        rotateX( var(--c-rotX) )
+        rotateY( var(--c-rotY) )
+        rotateZ( var(--c-rotZ) )
+        translate(-50%,-50%)
+        translate3d(
+            var(--c-transX),
+            var(--c-transY),
+            var(--c-transZ)
+        );
+
+    pointer-events: none;
+}
+
+.cuboid__side-top {
+    width: var(--c-width);
+    height: var(--c-depth);
+
+    position: absolute;
+    left: 0%;
+    top: 0%;
+
+    transform:
+        rotateX(90deg)
+        translate3d(
+            0px,
+            calc( var(--c-depth) / 2 ),
+            calc( var(--c-depth) / 2 )
+        );
+
+    background-color: var(--c-clr-top);
+}
+
+.cuboid__side-right {
+    width: var(--c-depth);
+    height: var(--c-height);
+
+    position: absolute;
+    right: 0%;
+    top: 0%;
+
+    transform:
+        rotateY(90deg)
+        translate3d(
+            calc( var(--c-depth) / -2 ),
+            0px,
+            calc( var(--c-depth) / 2 )
+        );
+
+    background-color: var(--c-clr-right);
+}
+
+.cuboid__side-bottom {
+    width: var(--c-width);
+    height: var(--c-depth);
+
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+
+    transform:
+        rotateX(90deg)
+        translate3d(
+            0px,
+            calc( var(--c-depth) / 2 ),
+            calc( var(--c-depth) / -2 )
+        );
+
+    background-color: var(--c-clr-bottom);
+}
+
+.cuboid__side-left {
+    width: var(--c-depth);
+    height: var(--c-height);
+
+    position: absolute;
+    left: 0%;
+    top: 0%;
+
+    transform:
+        rotateY(90deg)
+        translate3d(
+            calc( var(--c-depth) / -2 ),
+            0px,
+            calc( var(--c-depth) / -2 )
+        );
+
+    background-color: var(--c-clr-left);
+}
+
+.cuboid__side-back {
+    width: var(--c-width);
+    height: var(--c-height);
+
+    position: absolute;
+    left: 0%;
+    top: 0%;
+
+    transform:
+        translate3d(
+            0px,
+            0px,
+            0px
+        );
+
+    background-color: var(--c-clr-back);
+}
+
+.cuboid__side-front {
+    width: var(--c-width);
+    height: var(--c-height);
+
+    position: absolute;
+    left: 0%;
+    top: 0%;
+
+    transform:
+        translate3d(
+            0px,
+            0px,
+            var(--c-depth)
+        );
+
+    background-color: var(--c-clr-front);
+}
+
+
+.test {
+    --c-width: 50vmin;
+    --c-height: 35vmin;
+    --c-depth: 1vmin;
+
+    --c-rot: 0deg;
+    --c-rotX: 0deg;
+    --c-rotY: 0deg;
+    --c-rotZ: 0deg;
+
+    --c-transX: 0vmin;
+    --c-transY: 0vmin;
+    --c-transZ: 4vmin;
+
+    --c-clr-top: hsl(222,50%,60%);
+    --c-clr-right: hsl(222,50%,40%);
+    --c-clr-bottom: hsl(222,50%,60%);
+    --c-clr-left: hsl(222,50%,40%);
+    --c-clr-front: hsl(222,50%,50%);
+    --c-clr-back: hsl(222,50%,50%);
+}
