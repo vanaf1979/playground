@@ -1,0 +1,196 @@
+
+
+
+/*
+* 1 - Properties
+*/
+:root {
+    --clr-prim-100: #009A9C;
+    --clr-prim-200: #009A9C;
+    --clr-prim-300: #40434A;
+    --clr-light: #EFEEEB;
+    --ff-text: 'Lora', serif;
+    --ff-headings: 'Playfair Display', serif;
+}
+
+
+/*
+* 2 - Resets
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+}
+
+/*
+* 3 - Html/Body
+*/
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--ff-text);
+    line-height: 1.6rem;
+    font-weight: 500;
+    color: var(--clr-prim-300);
+    text-rendering: optimizeSpeed;
+    background: var(--clr-light);
+}
+
+/*
+* 4 - Typography
+*/
+h1, h2, h3 {
+    font-family: var(--ff-headings);
+    line-height: 1.4em;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 3rem;
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-size: clamp(1.1rem, 5vw, 1.4rem);
+}
+
+h3 {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+}
+
+p {
+    display: inline-block;
+    max-width: 50ch;
+}
+
+a {
+    color: var(--clr-prim-300);
+    transition: color 0.1s 0.05s ease-out;
+}
+
+a:hover,
+a:focus {
+    color: var(--clr-prim-200);
+}
+
+
+/*
+* 6 - A11y
+*/
+:focus {
+    outline: 5px auto Highlight;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
+.sr-show:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.skip-link {
+    display: inline-block;
+    height: auto;
+    width: auto;
+    padding: 0.3rem 1rem;
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-radius: 0 0 0.5rem 0.5rem;
+    background: var(--clr-prim-200);
+    color: var(--clr-light);
+    transform: translateX(-50%);
+}
+
+a.skip-link:hover,
+a.skip-link:focus {
+    color: var(--clr-light);
+}
+
+
+/*
+* ? - Header
+*/
+header {
+    margin: 5rem 0 2rem 0;
+    text-align: center;
+}
+
+header > * + * {
+    margin-top: 1rem;
+}
+
+header img {
+    width: 5rem;
+    height: 5rem;
+    padding: 1px;
+    border-radius: 50%;
+    border: solid 1px var(--clr-prim-200);
+}
+
+header ul {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 0;
+    list-style: none;
+    font-size: 1.2rem;
+}
+
+/*
+* ? - Main
+*/
+main {
+    text-align: center;
+}
+
+.list {
+    margin-bottom: 2rem;
+}
+
+.list > * + * {
+    margin-top: 1rem;
+}
+
+.list ul {
+    padding: 0;
+    list-style: circle inside;
+}
+
+
+/*
+* ? - Footer
+*/
+footer {
+    margin-bottom: 5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer i {
+    color: var(--clr-prim-200)
+}
