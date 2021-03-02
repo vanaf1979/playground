@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Css 3D TransForm with Gsap</title>
+
+    <link rel="stylesheet" href="../_public/meta.css">
+    <link rel="stylesheet" href="/trans-form/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo&family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.1/css/all.css?ver=1.0.0' type='text/css'/>
+
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="/trans-form/scripts.js" defer></script>
+</head>
+<body>
+
+<div class="section_container">
+
+    <div class="header__container">
+        <h2>HAVE QUESTIONS?</h2>
+        <p>Click the form below and ask away</p>
+    </div>
+
+    <div class="form__container">
+        <div class="form__shadow"></div>
+        <form class="form" action="#">
+            <div class="form__toggle">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="form__wrap">
+                <label for="name">Your name</label>
+                <input type="text" name="name" id="name" placeholder="Your name">
+            </div>
+            <div class="form__wrap">
+                <label for="email">Your email</label>
+                <input type="text" name="email" id="email" placeholder="Your email">
+            </div>
+            <div class="form__wrap">
+                <label for="message">Your question</label>
+                <textarea name="message" id="message" placeholder="Your question"></textarea>
+            </div>
+            <div class="form__wrap">
+                <input type="button" value="Send">
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+<footer style="--meta-clr: #777777;">
+    <a href="/">Playgrounds</a> -
+    <a href="https://codepen.io/Since1979/pen/NWbrvPN" target="_blank" rel="noopener">CodePen</a> -
+    <a href="https://twitter.com/Vanaf1979" target="_blank" rel="noopener">Twitter</a>
+</footer>
+
+</body>
+</html>
