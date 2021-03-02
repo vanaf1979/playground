@@ -1,0 +1,43 @@
+:root {
+    --bg-img: url(https://i.pinimg.com/originals/ac/2f/6f/ac2f6f3886f0039d774c263c432222db.jpg);
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
+    background-image: var(--bg-img);
+    background-size: cover;
+    background-position: center center;
+    font-family: sans-serif;
+}
+
+h1 {
+    margin: 0px;
+    background-image: linear-gradient(
+        to right,
+        white var(--end, 0%),
+        transparent var(--start, 0%)
+    );
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    font-size: 12vmin;
+    filter: opacity(0.8);
+}
+
+p {
+    position: absolute;
+    right: 20px;
+    bottom: 40px;
+    margin: 0px;
+    color: #ffffff;
+    filter: opacity(0.5) blur(1px);
+    font-size: 6vmin;
+}
