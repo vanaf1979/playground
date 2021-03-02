@@ -1,0 +1,246 @@
+:root {
+    --switch-bg: url(https://pbs.twimg.com/media/DL15WkVW0AALMIe.jpg);
+    --body-bg: url(https://www.ixxiyourworld.com/media/2374518/Draak.jpg?mode=crop&width=562&height=374);
+    --btn-bg: linear-gradient(
+        90deg,
+        hsl(120, 83%, 10%),
+        hsl(120, 83%, 20%)
+    );
+}
+
+* {
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    margin: 0;
+    min-height: 100vh;
+    background-color: lightblue;
+    background-image: var(--body-bg);
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+}
+
+.container {
+    width: 70VW;
+    max-width: 700px;
+    height: 350px;
+    background-color: #fff;
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: hsl(0, 0%, 91%);
+    filter: drop-shadow(0px 0px 15px hsl(0, 0%, 0%, 0.7));
+}
+
+.switch {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    overflow: hidden;
+    background-image: var(--switch-bg);
+    background-position: center center;
+    background-size: 100%;
+    background-attachment: fixed;
+    transition: left 0.8s ease-out;
+}
+
+#signup:target .switch {
+    left: 0%;
+}
+
+#login:target .switch {
+    left: 50%;
+}
+
+.switch a {
+    padding: 0.7rem 1rem;
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: hsl(222, 30%, 80%, 80%);
+    background-image: var(--btn-bg);
+    border-radius: 1000px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border: solid 2px #ffffff;
+}
+
+.switch a:active {
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+#loginbt {
+    left: -80%;
+    transition: left 0.8s ease-out;
+}
+
+#signupbt {
+    left: 50%;
+    transition: left 0.8s ease-out;
+}
+
+#signup:target #loginbt {
+    left: 50%;
+}
+
+#login:target #loginbt {
+    left: -80%;
+}
+
+#signup:target #signupbt {
+    left: 180%;
+}
+
+#login:target #signupbt {
+    left: 50%;
+}
+
+.login {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    animation: none;
+}
+
+#signup:target .login {
+    animation: bouncelogin 0.7s ease-out;
+}
+
+#login:target .login {
+    animation: bounceloginback 0.7s ease-out;
+}
+
+@keyframes bouncelogin {
+    0% {
+        left: 0%;
+    }
+    50% {
+        left: 25%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+
+@keyframes bounceloginback {
+    0% {
+        left: 0%;
+    }
+    50% {
+        left: 25%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+
+.signup {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0%;
+}
+
+#signup:target .signup {
+    animation: bouncesignup 0.7s ease-out;
+}
+
+#login:target .signup {
+    animation: bouncesignupback 0.7s ease-out;
+}
+
+@keyframes bouncesignup {
+    0% {
+        left: 50%;
+    }
+    50% {
+        left: 25%;
+    }
+    100% {
+        left: 50%;
+    }
+}
+
+@keyframes bouncesignupback {
+    0% {
+        left: 50%;
+    }
+    50% {
+        left: 25%;
+    }
+    100% {
+        left: 50%;
+    }
+}
+
+.login,
+.signup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem 2.5rem;
+    background-color: hsl(0, 0%, 91%);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.formwrap {
+    flex: 1;
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+input[type="email"],
+input[type="password"] {
+    display: block;
+    padding: 0.6rem 1rem 0.7rem 1rem;
+    width: 100%;
+    border: none;
+    border-radius: 1000px;
+    background-color: hsl(222, 50%, 100%);;
+}
+
+form a {
+    display: inline-block;
+    padding: 0.7rem 0 0 0;
+}
+
+input[type="button"] {
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    border: none;
+    border-radius: 1000px;
+    background-color: hsl(222, 50%, 100%);
+    color: white;
+    background-image: var(--btn-bg);
+    border: solid 1px hsl(212, 50%, 60%);
+}
+
+input[type="button"]:active {
+    transform: scale(0.95);
+}

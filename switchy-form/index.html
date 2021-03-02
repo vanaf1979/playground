@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Css login/signup switch without Javascript (Efteling theme)</title>
+
+    <link rel="stylesheet" href="../_public/meta.css">
+    <link rel="stylesheet" href="/switchy-form/styles.css">
+    <script src="/switchy-form/scripts.js" defer></script>
+</head>
+<body>
+
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+<div class="container" id="signup">
+    <div class="inner" id="login">
+        <div class="login">
+            <form action="#">
+                <div class="formwrap">
+                    <h2>Login</h2>
+                </div>
+                <div class="formwrap">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="formwrap">
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+                <div class="formwrap">
+                    <a>Lost password?</a>
+                </div>
+                <div class="formwrap">
+                    <input type="button" value="Login">
+                </div>
+            </form>
+        </div>
+
+        <div class="signup">
+            <form action="#">
+                <div class="formwrap">
+                    <h2>Signup</h2>
+                </div>
+                <div class="formwrap">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="formwrap">
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+                <div class="formwrap">
+                    <input type="password" name="password" id="password" placeholder="Repeat password">
+                </div>
+                <div class="formwrap">
+                    <input type="button" value="Signup">
+                </div>
+            </form>
+        </div>
+
+        <div class="switch">
+            <a href="#login" id="loginbt">Login</a>
+            <a href="#signup" id="signupbt">Signup</a>
+        </div>
+
+    </div>
+</div>
+
+<footer style="--meta-clr: #ffffff;">
+    <a href="/">Playgrounds</a> -
+    <a href="https://codepen.io/Since1979/pen/VwmzqWv" target="_blank" rel="noopener">CodePen</a> -
+    <a href="https://twitter.com/Vanaf1979" target="_blank" rel="noopener">Twitter</a>
+</footer>
+
+</body>
+</html>
