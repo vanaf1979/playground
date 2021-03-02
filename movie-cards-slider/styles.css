@@ -1,0 +1,133 @@
+:root {
+    --swiper-theme-color: hsl(222,70%,80%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #111111;
+    font-family: 'Montserrat', sans-serif;
+    color: #efefef;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 40vw;
+    padding: 30px 0px;
+}
+.swiper-wrapper {
+    height: 40vw;
+}
+
+.swiper-pagination-bullets {
+    z-index: 100;
+    bottom: 15px !important;
+}
+.swiper-pagination-bullet {
+    background-color: hsl(222,70%,50%);
+}
+.swiper-pagination-bullet-active {
+    background-color: hsl(222,70%,50%);
+}
+
+.swiper-slide {
+    width: 35vw;
+    height: 35vw;
+    position: relative;
+    background-color: #212121;
+    border-radius: 5px;
+    overflow: hidden;
+    filter: drop-shadow( 0px 10px 10px hsl(0,0%,00%,0.6) );
+    transition: transform 0.2s ease-out;
+}
+.swiper-slide:not(.swiper-slide-active) {
+    transform: scale(90%);
+    filter: opacity(0.9);
+}
+.background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+        transform 0.7s ease-out,
+        filter 0.2s ease-out;
+}
+.swiper-slide:hover .background img {
+    transform: scale(105%);
+}
+.swiper-slide:not(.swiper-slide-active) img {
+    filter: grayscale(60%);
+}
+.foreground {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(
+        to top,
+        hsl(0,0%,0%,0.8) 10%,
+        transparent 70%
+    );
+
+    transition: padding 0.4s ease-out;
+}
+
+.foreground:hover {
+    padding: 3rem 3rem 6rem 3rem;
+}
+
+.foreground > * {
+    filter: drop-shadow(2px 2px 5px #000000);
+}
+.foreground p {
+    margin-bottom: 0.5rem;
+    max-width: 40ch;
+}
+.foreground p.genre {
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: hsl(222,70%,70%);
+    text-transform: uppercase;
+}
+.foreground p.description {
+    position: absolute;
+    bottom: 100%;
+}
+.foreground:hover p.description {
+    position: absolute;
+    bottom: 0%;
+}
+.foreground h2 {
+    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+}
+.foreground time {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: hsl(222,70%,70%);
+    text-transform: uppercase;
+}
