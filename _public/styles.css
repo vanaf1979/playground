@@ -176,6 +176,10 @@ main {
     margin-top: 1rem;
 }
 
+.list ul li {
+    margin-bottom: 0.5rem;
+}
+
 .list ul {
     padding: 0;
     list-style: circle inside;

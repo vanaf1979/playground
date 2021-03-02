@@ -1,0 +1,43 @@
+:root {
+    --bg-img: url(https://p0.pikrepo.com/preview/728/201/white-and-black-graffiti-on-brick-wall.jpg)
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: blue;
+    background-image: var(--bg-img);
+    background-size: auto 100%;
+    background-position: bottom center;
+}
+
+.mask {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    background-image:
+        linear-gradient(
+            to bottom,
+            black 5%,
+            transparent 10% 60%,
+            black 100%
+        ),
+        conic-gradient(
+            from calc( var(--deg, 1.57) * 1rad) at 50% 0%,
+            hsl(0,0%,0%,1) 0deg,
+            hsl(0,0%,0%,1) 60deg,
+            hsl(0,0%,0%,0) 80deg 100deg,
+            hsl(0,0%,0%,1) 121deg,
+            hsl(0,0%,0%,1) 180deg);
+}
+
+.lamp {
+    width: 80px;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform-origin: center 30px;
+    transform: translateX(-50%);
+    z-index: 10;
+}
