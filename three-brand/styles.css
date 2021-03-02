@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    background-image: linear-gradient(
+        to bottom,
+        #04142F,
+        black
+    );
+
+    font-family: sans-serif;
+    color: hsl(222, 99%, 80%);
+    cursor: grab;
+}
+
+p {
+    position: absolute;
+    right: 20px;
+    bottom: 35px;
+}

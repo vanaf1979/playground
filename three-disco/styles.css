@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    background-image: url(https://i.ytimg.com/vi/BRycWm81fVY/maxresdefault.jpg);
+    background-size: cover;
+    background-position: center center;
+
+    font-family: sans-serif;
+    color: hsl(222, 99%, 80%);
+    cursor: grab;
+}
+
+p {
+    position: absolute;
+    right: 20px;
+    bottom: 35px;
+}

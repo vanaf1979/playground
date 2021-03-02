@@ -1,0 +1,263 @@
+:root {
+    --text-clr: hsl(0, 0%, 10%);
+    --shadow: hsla(0, 50%, 0%, 50%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    min-height: 100vh;
+    font-family: sans-serif;
+    color: var(--text-clr);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.card {
+    width: 186px;
+    height: 300px;
+    position: relative;
+    z-index: auto;
+}
+
+.card:hover {
+    z-index: 100;
+}
+
+.card__image {
+    width: 186px;
+    height: 248px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    background-image: url(https://i.popdog.com/97a76565-f5c3-11e9-ba4a-0a58a9feac2a/rc/186x248-c.jpg);
+    border-radius: 15px;
+    transition: transform 0.2s ease-out;
+}
+
+.card:hover .card__image {
+    transform: scale(0.8) translateY(-60%);
+    filter: drop-shadow(0px 0px 20px var(--shadow));
+}
+
+.grade {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 44px;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    z-index: 10;
+    background-color: hsla(0, 0%, 0%, 0.6);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 80%, 0% 100%);
+    color: #efefef;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease-out;
+}
+
+.card:hover .grade {
+    transform: translate(40px, -63px);
+}
+
+.card__details {
+    display: flex;
+    flex-direction: column;
+    width: 150%;
+    height: 140%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    border-radius: 15px;
+    background-color: #fff;
+    transform: translate(-50%, -5%) scale(0.01);
+    filter: drop-shadow(0px 0px 20px var(--shadow));
+    transition: transform 0.15s ease-out, filter 0.1s ease-out;
+}
+
+.card:hover .card__details {
+    filter: drop-shadow(0px 0px 20px var(--shadow));
+    transform: translate(-50%, -15%) scale(1);
+}
+
+.card__details-top {
+    background-image: url(https://i.popdog.com/97a76565-f5c3-11e9-ba4a-0a58a9feac2a/rc/186x248-c.jpg);
+    background-position: center top 15%;
+    background-size: cover;
+    border-radius: 15px;
+    over-flow: hidden;
+    position: relative;
+    overflow: hidden;
+}
+
+.card__details-top:before {
+    content: "";
+    width: 200%;
+    height: 60%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-image: url("https://assets.codepen.io/605876/wave--infinite.svg"), linear-gradient(0deg, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 0) 60%);
+    background-size: 300% 40%, 100% 100%;
+    animation: wave 7s infinite linear;
+}
+
+@keyframes wave {
+    to {
+        transform: translate(-50%, 0);
+    }
+}
+
+.card__details-top:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: hsla(0, 100%, 100%, 0.4);
+}
+
+.card__details-top {
+    height: 40%;
+}
+
+.card__details-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 60%;
+    padding: 0 1rem 1rem 1rem;
+    transform: translateY(10%);
+    transition: transform 0.2s 0.05s ease-out;
+}
+
+.card:hover .card__details-bottom {
+    transform: translateY(0%);
+}
+
+.card__details-bottom h3 {
+    margin: 0;
+    padding: 0;
+}
+
+/* Specifications */
+.specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    padding: 0;
+    margin: 1.2rem auto;
+    list-style: none;
+}
+
+.specs li {
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.specs li:first-child {
+    border-right: solid 1px var(--text-clr);
+}
+
+.specs li span {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+/* More button */
+.more {
+    display: block;
+    padding: 0.5rem 1rem 0.6rem 1rem;
+    margin: 0 0 1.2rem 0;
+    background-color: hsl(240, 60%, 65%);
+    border: none;
+    border-radius: 10000px;
+    color: #ffffff;
+    font-size: 0.8rem;
+    line-height: 1;
+    transition: background-color 0.1s;
+}
+
+.more:hover {
+    background-color: hsl(240, 60%, 55%);
+}
+
+/* Thumbnails */
+.thumbs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    height: 50px;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.thumbs li {
+    padding: 0;
+    margin: 0;
+    height: 20px;
+}
+
+.thumbs li figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    position: relative;
+}
+
+.thumbs li figure img {
+    width: 30px;
+    margin-bottom: 5px;
+    border-radius: 100%;
+    position: relative;
+}
+
+.thumbs li figure figcaption {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.thumbs li figure figcaption span {
+    display: block;
+    width: 100%;
+    font-weight: normal;
+}
+
+.overview {
+    height: 44px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    transition: transform 0.2s ease-out;
+}
+
+.card:hover .overview {
+    transform: translateY(-50px) scale(0);
+}
