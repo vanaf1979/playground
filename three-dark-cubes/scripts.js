@@ -1,5 +1,6 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.120.0/build/three.module.js';
-import { OrbitControls } from 'https://cdn.skypack.dev/three@0.120.0/examples/jsm/controls/OrbitControls.js'
+import { OrbitControls } from 'https://cdn.skypack.dev/three@0.120.0/examples/jsm/controls/OrbitControls.js';
+
 import gsap from 'https://cdn.skypack.dev/gsap';
 
 
@@ -13,7 +14,7 @@ const camera = new THREE.PerspectiveCamera(
     0.1,
     1000
 );
-camera.position.z = 150;
+camera.position.z = 100;
 
 // 3 - Create a renderer
 const renderer = new THREE.WebGLRenderer({
@@ -47,7 +48,7 @@ const config = {
     depth: 10,
     columns: 10,
     rows: 10,
-    gap: 15
+    gap: 40
 }
 
 // 7 - Create a box geometry.
@@ -108,10 +109,17 @@ for (let stepX = 0; stepX < config.columns; stepX++) {
         const hue = Math.floor(Math.random() * 360)
 
         const bluematerial = new THREE.MeshLambertMaterial({
-            color: new THREE.Color(`hsl(${hue}, 50%, 50%)`),
+            color: new THREE.Color(`hsl(${hue}, 0%, 7%)`),
             transparent: false,
             opacity: 1
         });
+
+        // const bluematerial = new THREE.MeshLambertMaterial({
+        //     color: new THREE.Color(`hsl(222, 0%, 10%)`),
+        //     transparent: false,
+        //     opacity: 1,
+        //     wireframe: false
+        // });
 
 
         const mat = odd == 1 ? bluematerial : bluematerial;
@@ -180,8 +188,8 @@ var hover = gsap.timeline({
     repeat: -1,
     yoyo: true
 })
-    .to(boards.rotation, {
-        duration: 15,
-        y: 0.5,
-        x: -0.3
-    });
+.to(boards.rotation, {
+    duration: 60,
+    y: Math.PI * 2,
+    x: Math.PI * 2
+});

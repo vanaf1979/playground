@@ -1,14 +1,6 @@
 const swiper = new Swiper('.swiper-container', {
-    breakpoints: {
-        640: {
-            slidesPerView: 1,
-            spaceBetween: 0,
-        },
-        1024: {
-            slidesPerView: 'auto',
-            spaceBetween: 0,
-        },
-    },
+    slidesPerView: 'auto',
+    spaceBetween: -10,
     centeredSlides: true,
     loop: true,
     navigation: {
@@ -23,3 +15,12 @@ const swiper = new Swiper('.swiper-container', {
     //     disableOnInteraction: false,
     // }
 });
+
+
+swiper.slides.forEach((slide) => {
+    let descEl = slide.querySelector('.description');
+    let descHeight = descEl.clientHeight + 40;
+    slide.style.setProperty('--desc-height', descHeight);
+});
+
+// TODO: Add resize event listener to re-calculate the heights.

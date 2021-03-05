@@ -1,3 +1,7 @@
+import * as THREE from 'https://cdn.skypack.dev/three@0.120.0/build/three.module.js';
+import { OrbitControls } from 'https://cdn.skypack.dev/three@0.120.0/examples/jsm/controls/OrbitControls.js'
+import gsap from 'https://cdn.skypack.dev/gsap';
+
 // 1 - Create a scene.
 const scene = new THREE.Scene();
 
@@ -28,7 +32,7 @@ window.addEventListener('resize', () => {
 })
 
 
-controls = new THREE.OrbitControls(
+const controls = new OrbitControls(
     camera,
     renderer.domElement
 );
@@ -100,7 +104,7 @@ boards.add(bluecube)
 boards.add(whitecube)
 boards.add(whitetwocube)
 
-
+let font = null;
 function loadFont() {
     var loader = new THREE.FontLoader();
     loader.load('https://threejs.org/examples/fonts/helvetiker_bold.typeface.json', function (res) {
@@ -113,7 +117,7 @@ function createText() {
 
     var cubeWhite = new THREE.MeshLambertMaterial({color: 0xffffff})
 
-    stephanGeo = new THREE.TextGeometry('Stephan Nijman', {
+    const stephanGeo = new THREE.TextGeometry('Stephan Nijman', {
         font: font,
         size: 4,
         height: 0.5,
@@ -135,7 +139,7 @@ function createText() {
 
     var cubeBlack = new THREE.MeshLambertMaterial({color: 0x111111})
 
-    webDevGeo = new THREE.TextGeometry('Web Dev Tips & Tutorials', {
+    const webDevGeo = new THREE.TextGeometry('Web Dev Tips & Tutorials', {
         font: font,
         size: 4,
         height: 0.5,
@@ -155,7 +159,7 @@ function createText() {
     boards.add(webDevText)
 
 
-    sinceGeo = new THREE.TextGeometry('Since1979.dev', {
+    const sinceGeo = new THREE.TextGeometry('Since1979.dev', {
         font: font,
         size: 4,
         height: 0.5,
@@ -201,9 +205,6 @@ scene.add(ambient_light);
 // 9 - Animat the cube
 const animate = function () {
     requestAnimationFrame(animate);
-    //bluecube.rotation.x += 0.005;
-    //boards.rotation.y += 0.005;
-    //bluecube.rotation.z += 0.005;
     renderer.render(scene, camera);
 };
 animate();
@@ -212,8 +213,8 @@ var hover = gsap.timeline({
     repeat: -1,
     yoyo: true
 })
-    .to(boards.rotation, {
-        duration: 8,
-        y: 0.5,
-        x: -0.3
-    })
+.to(boards.rotation, {
+    duration: 8,
+    y: 0.5,
+    x: -0.3
+})

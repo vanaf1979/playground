@@ -185,7 +185,9 @@ main {
     list-style: circle inside;
 }
 
-
+.disclaimer {
+    margin-bottom: 2rem;
+}
 /*
 * ? - Footer
 */

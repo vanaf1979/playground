@@ -1,3 +1,5 @@
+import dat from 'https://cdn.skypack.dev/dat.gui';
+
 const gui = new dat.GUI();
 
 const coboid = document.querySelector('.test');

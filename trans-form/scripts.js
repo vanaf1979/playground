@@ -1,3 +1,6 @@
+import gsap from 'https://cdn.skypack.dev/gsap';
+
+
 /*
  * Get references to the necesary elements.
  */

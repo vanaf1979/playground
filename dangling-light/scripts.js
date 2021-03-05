@@ -1,3 +1,5 @@
+import { gsap, Power1 } from 'https://cdn.skypack.dev/gsap';
+
 const lamp = document.querySelector('.lamp');
 
 gsap.fromTo(lamp, {
