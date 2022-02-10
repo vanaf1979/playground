@@ -85,8 +85,8 @@ a:hover {
 }
 
 .section__center {
-    width: min(1248px, calc(100% - 2rem));
     margin: 0 auto;
+    width: min(1248px, calc(100% - 2rem));
 }
 
 .section__title {
@@ -162,14 +162,14 @@ a:hover {
 
 .header__list li:first-of-type {
     flex-grow: initial;
-    padding-right: 1rem;
     justify-content: flex-start;
+    padding-right: 1rem;
 }
 
 .header__list li:last-of-type {
     flex-grow: initial;
-    padding-left: 1rem;
     justify-content: flex-end;
+    padding-left: 1rem;
     border-right: none;
 }
 
@@ -197,9 +197,9 @@ a:hover {
 }
 
 .header__search {
-    flex-grow: initial;
     display: flex;
     align-items: center;
+    flex-grow: initial;
 }
 
 .header__search input[type="text"] {
@@ -212,11 +212,11 @@ a:hover {
     justify-content: center;
     margin: 0;
     padding: 0;
-    border: none;
     height: 25px;
     width: 25px;
     appearance: none;
     -webkit-appearance: none;
+    border: none;
     background-color: #000000;
 }
 
@@ -251,8 +251,8 @@ a:hover {
         display: block;
         margin: 0;
         padding: 0 0.5rem;
-        border: none;
         height: 25px;
+        border: none;
     }
 
     .header__search button {
@@ -277,20 +277,20 @@ a:hover {
 @media screen and ( min-width: 568px ) {
     .hero {
         display: grid;
-        gap: 0.5rem;
         grid-template:
             "large large" auto
             "small-one small-two" auto
             "small-three small-four" auto / 1fr 1fr;
+        gap: 0.5rem;
     }
 }
 
 @media screen and ( min-width: 1000px ) {
     .hero {
-        gap: 0.5rem 1rem;
         grid-template:
             "large large small-one small-two" auto
             "large large small-three small-four" auto / 1fr 1fr 1fr 1fr;
+        gap: 0.5rem 1rem;
     }
 }
 
@@ -420,13 +420,13 @@ a:hover {
     align-items: center;
     justify-content: center;
     height: 0;
-    overflow: hidden;
     position: fixed;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
     z-index: 100;
+    overflow: hidden;
     background-color: hsla(0, 0%, 0%, 0.8);
     font-size: 1.6rem;
     transition: height 0.2s ease-out;
@@ -437,8 +437,8 @@ a:hover {
 }
 
 .extmenu ul {
-    padding: 0;
     margin: 0;
+    padding: 0;
     list-style: none;
 }
 
