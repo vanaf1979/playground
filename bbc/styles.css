@@ -1,0 +1,435 @@
+/*
+* ----------------------------------------------
+* Homepage styles
+* Depends on: reset.css
+* ----------------------------------------------
+* 01 - Globals
+* 02 - Typography
+* 03 - Utilities
+* 04 - Header / Nav
+* 05 - Hero
+* 06 - News / Sports
+* 07 - Overlay menu
+* ----------------------------------------------
+*/
+
+/*
+* ----------------------------------------------
+* 01 - Globals
+* ----------------------------------------------
+*/
+:root {
+    --text-color: #111111;
+    --flow-space: 0.5rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0 0 5rem 0;
+    padding: 0;
+    font-family: 'Open Sans', Arial, Helvetica, freesans, sans-serif;
+    font-weight: 200;
+    line-height: 1.4rem;
+    color: var(--text-color);
+}
+
+/*
+* ----------------------------------------------
+* 02 - Typography
+* ----------------------------------------------
+*/
+h1,
+h2,
+h3 {
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+h1 {
+    font-size: clamp(1rem, 5vw, 1.6rem);
+    line-height: 1.6rem;
+}
+
+h2 {
+    font-size: clamp(1rem, 5vw, 1.2rem);
+    line-height: 1.2rem;
+}
+
+p,
+a {
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*
+* ----------------------------------------------
+* 03 - Utilities
+* ----------------------------------------------
+*/
+.flow > * + * {
+    margin-top: var(--flow-space, 1rem);
+}
+
+.section {
+}
+
+.section__center {
+    width: min(1248px, calc(100% - 2rem));
+    margin: 0 auto;
+}
+
+.section__title {
+    margin: 3rem auto 1rem auto;
+}
+
+.section__title h3 {
+    display: block;
+    padding-left: 0.5rem;
+    border-left: 2px solid red;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.2rem;
+}
+
+.tag {
+    display: inline-block;
+    margin-top: 1rem;
+    padding-left: 0.5rem;
+    border-left: 2px solid red;
+    font-size: 0.9rem;
+    line-height: 0.7rem;
+    text-transform: uppercase;
+}
+
+/*
+* ----------------------------------------------
+* 04 - Header / Nav
+* ----------------------------------------------
+*/
+.header {
+    --text-color: #ffffff;
+    height: 41px;
+    background-color: #000000;
+}
+
+.header__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    height: 41px;
+    list-style: none;
+}
+
+.header__list li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 41px;
+    flex-grow: 1;
+    position: relative;
+    border-right: solid 1px #aaaaaa;
+    font-size: 0.8rem;
+}
+
+.header__list li:not(:first-child, :last-child):after {
+    display: none;
+    content: '';
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+    border-bottom: solid 4px var(--sec-clr, red);
+}
+
+.header__list li:not(:first-child, :last-child):hover:after {
+    display: block;
+}
+
+.header__list li:first-of-type {
+    flex-grow: initial;
+    padding-right: 1rem;
+    justify-content: flex-start;
+}
+
+.header__list li:last-of-type {
+    flex-grow: initial;
+    padding-left: 1rem;
+    justify-content: flex-end;
+    border-right: none;
+}
+
+.header__list li:nth-child(n+5):nth-child(-n+9) {
+    display: none;
+}
+
+.header__logo svg {
+    height: 25px;
+    margin-top: 6px;
+}
+
+.header__signin svg {
+    height: 15px;
+    margin-right: 0rem;
+}
+
+.header__signin a {
+    display: none;
+}
+
+.header__more svg {
+    height: 20px;
+    margin-top: 0.5rem;
+}
+
+.header__search {
+    flex-grow: initial;
+    display: flex;
+    align-items: center;
+}
+
+.header__search input[type="text"] {
+    display: none;
+}
+
+.header__search button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: 25px;
+    width: 25px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #000000;
+}
+
+.header__search svg {
+    height: 16px;
+}
+
+.header__search svg path {
+    fill: var(--text-color)
+}
+
+@media screen and ( min-width: 568px ) {
+    .header__list li:nth-child(n+5):nth-child(-n+7) {
+        display: inline-flex;
+    }
+}
+
+@media screen and ( min-width: 1000px ) {
+    .header__list li:nth-child(n+8):nth-child(-n+9) {
+        display: inline-flex;
+    }
+
+    .header__signin a {
+        display: inline-block;
+    }
+
+    .header__signin svg {
+        margin-right: 0.5rem;
+    }
+
+    .header__search input[type="text"] {
+        display: block;
+        margin: 0;
+        padding: 0 0.5rem;
+        border: none;
+        height: 25px;
+    }
+
+    .header__search button {
+        background-color: #ffffff;
+    }
+
+    .header__search svg path {
+        fill: #000000;
+    }
+}
+
+/*
+* ----------------------------------------------
+* 05 - Hero
+* ----------------------------------------------
+*/
+.hero {
+    display: block;
+    width: 100%;
+}
+
+@media screen and ( min-width: 568px ) {
+    .hero {
+        display: grid;
+        gap: 0.5rem;
+        grid-template:
+            "large large" auto
+            "small-one small-two" auto
+            "small-three small-four" auto / 1fr 1fr;
+    }
+}
+
+@media screen and ( min-width: 1000px ) {
+    .hero {
+        gap: 0.5rem 1rem;
+        grid-template:
+            "large large small-one small-two" auto
+            "large large small-three small-four" auto / 1fr 1fr 1fr 1fr;
+    }
+}
+
+.hero__item {
+    display: grid;
+    grid-template: 1fr / 1fr;
+    transition: filter 0.2s ease-out;
+}
+
+.hero__item:nth-of-type(1) {
+    grid-area: large;
+}
+
+.hero__item:nth-of-type(2) {
+    grid-area: small-one;
+}
+
+.hero__item:nth-of-type(3) {
+    grid-area: small-two;
+}
+
+.hero__item:nth-of-type(4) {
+    grid-area: small-three;
+}
+
+.hero__item:nth-of-type(5) {
+    grid-area: small-four;
+}
+
+.hero__item picture {
+    grid-area: 1 / 1 / 2 / 2;
+    margin: 0;
+    padding: 0;
+}
+
+.hero__item:hover picture {
+    z-index: -1;
+    filter: brightness(1.1);
+}
+
+.hero__content {
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem 0;
+    border-bottom: solid 1px silver;
+}
+
+.hero__item:nth-of-type(1) .hero__content {
+    --text-color: #ffffff;
+    padding: 1rem;
+    background-image: linear-gradient(
+        to top,
+        hsla(0, 0%, 0%, 0.7),
+        transparent
+    );
+    border: none;
+}
+
+@media screen and ( min-width: 568px ) {
+    .hero__content {
+        --text-color: #ffffff;
+        padding: 1rem;
+        background-image: linear-gradient(
+            to top,
+            hsla(0, 0%, 0%, 0.7),
+            transparent
+        );
+        border: none;
+    }
+}
+
+/*
+* ----------------------------------------------
+* 06 - News / Sports
+* ----------------------------------------------
+*/
+.news {
+}
+
+.news_item {
+    padding: 1rem 0;
+    border-bottom: solid 1px silver;
+}
+
+.news_item:hover picture {
+    filter: brightness(1.1);
+}
+
+.news_item p:not(.tag) {
+    display: none;
+}
+
+@media screen and ( min-width: 568px ) {
+    .news {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .news_item {
+        border-bottom: none;
+    }
+
+    .news_item p:not(.tag) {
+        display: block;
+    }
+}
+
+/*
+* ----------------------------------------------
+* 07 - Overlay menu
+* ----------------------------------------------
+*/
+.extmenu {
+    --text-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background-color: hsla(0, 0%, 0%, 0.8);
+    font-size: 1.6rem;
+    transition: height 0.2s ease-out;
+}
+
+.extmenu.open {
+    height: 100vh;
+}
+
+.extmenu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.extmenu li {
+    padding: 1rem 0;
+    text-align: center;
+}

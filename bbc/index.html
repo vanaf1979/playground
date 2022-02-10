@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bbc</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../_public/reset.css">
+    <link rel="stylesheet" href="/bbc/styles.css">
+</head>
+<body>
+
+<div class="header">
+    <nav class="section__center">
+        <ul class="header__list">
+            <li class="header__logo">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 24">
+                        <path fill="#FFF" d="M84 0v24H60V0h24ZM54 0v24H30V0h24ZM24 0v24H0V0h24Zm49 5-3 1a6 6 0 0 0-2 1 6 6 0 0 0-1 2l-1 3v3l2 2 2 1 3 1h2a8 8 0 0 0 2-1v-3a7 7 0 0 1-4 1h-2a3 3 0 0 1-1-2l-1-2 1-2a4 4 0 0 1 1-2h2a7 7 0 0 1 4 1V6a8 8 0 0 0-2-1 9 9 0 0 0-2 0ZM42 5h-5v14h5l3-1 2-1v-4l-2-1 1-2 1-1-2-3-3-1ZM12 5H7v14h5l3-1 2-1v-4l-2-1 1-2 1-1-2-3-3-1Zm30 8c2 0 2 1 2 2v1l-2 1h-3v-4h3Zm-30 0c2 0 2 1 2 2v1l-2 1H9v-4h3Zm30-6 2 2-1 1-1 1h-3V7h3ZM12 7l2 2-1 1-1 1H9V7h3Z"/>
+                    </svg>
+                </a>
+            </li>
+            <li class="header__signin" style="--sec-clr: lightgreen">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="svg-inline--fa fa-user fa-w-14" data-icon="user" data-prefix="fas" viewBox="0 0 448 512">
+                    <path fill="#FFF" d="M224 256a128 128 0 1 0 0-256 128 128 0 0 0 0 256zm90 32h-17a174 174 0 0 1-146 0h-17C60 288 0 348 0 422v42c0 27 22 48 48 48h352c27 0 48-21 48-48v-42c0-74-60-134-134-134z"/>
+                </svg>
+                <a href="#">Sign-in</a>
+            </li>
+            <li style="--sec-clr: red">
+                <a href="#">Home</a>
+            </li>
+            <li style="--sec-clr: green">
+                <a href="#">News</a>
+            </li>
+            <li style="--sec-clr: blue">
+                <a href="#">Sport</a>
+            </li>
+            <li style="--sec-clr: yellow">
+                <a href="#">Reel</a>
+            </li>
+            <li style="--sec-clr: pink">
+                <a href="#">Worklife</a>
+            </li>
+            <li style="--sec-clr: gold">
+                <a href="#">Travel</a>
+            </li>
+            <li style="--sec-clr: lightblue">
+                <a href="#">Future</a>
+            </li>
+            <li class="header__more" style="--sec-clr: aqua">
+                <a href="#" id="more">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="#ffffff" d="M0 96c0-18 14-32 32-32h384a32 32 0 1 1 0 64H32c-18 0-32-14-32-32zm0 160c0-18 14-32 32-32h384a32 32 0 1 1 0 64H32c-18 0-32-14-32-32zm416 192H32a32 32 0 1 1 0-64h384a32 32 0 1 1 0 64z"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <form class="header__search">
+                    <input type="text" name="search" id="search" placeholder="Search" aria-label="Enter your search term">
+                    <button aria-label="Search">
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="svg-inline--fa fa-search fa-w-16" data-icon="search" data-prefix="fas" viewBox="0 0 512 512">
+                            <path fill="currentColor" d="M505 443 405 343c-4-4-10-7-17-7h-16a208 208 0 1 0-36 36v16c0 7 3 13 7 17l100 100c9 9 24 9 34 0l28-28c9-10 9-25 0-34zM208 336a128 128 0 1 1 0-256 128 128 0 0 1 0 256z"/>
+                        </svg>
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+<div class="section__center">
+    <header class="section__title">
+        <h3>Welcome to BBC.com</h3>
+    </header>
+    <div class="hero">
+        <div class="hero__item">
+            <picture>
+                <source srcset="https://unsplash.it/id/1/616/346" media="(min-width: 1000px)" type="image/jpg">
+                <source srcset="https://unsplash.it/id/1/1000/550" media="(min-width: 568px)" type="image/jpg">
+                <source srcset="https://unsplash.it/id/1/568/350" media="(min-width: 1px)" type="image/jpg">
+                <img src="https://unsplash.it/id/1/1000/550" alt="…" loading="lazy">
+            </picture>
+            <div class="hero__content flow">
+                <h1>
+                    <a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing.</a>
+                </h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet culpa ipsa nihil obcaecati ut.</p>
+                <p class="tag">Lorem</p>
+            </div>
+        </div>
+        <div class="hero__item">
+            <picture>
+                <source srcset="https://unsplash.it/id/101/300/169" media="(min-width: 1000px)">
+                <source srcset="https://unsplash.it/id/101/500/350" media="(min-width: 568px)">
+                <source srcset="/bbc/hidden.gif" media="(min-width: 1px)">
+                <img src="https://unsplash.it/id/101/500/350" alt="…" loading="lazy">
+            </picture>
+            <div class="hero__content flow">
+                <h2>
+                    <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
+                </h2>
+                <p class="tag">Lorem</p>
+            </div>
+        </div>
+        <div class="hero__item">
+            <picture>
+                <source srcset="https://unsplash.it/id/1010/300/169" media="(min-width: 1000px)">
+                <source srcset="https://unsplash.it/id/1010/500/350" media="(min-width: 568px)">
+                <source srcset="/bbc/hidden.gif" media="(min-width: 1px)">
+                <img src="https://unsplash.it/id/1010/500/350" alt="…" loading="lazy">
+            </picture>
+            <div class="hero__content flow">
+                <h2>
+                    <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
+                </h2>
+                <p class="tag">Lorem</p>
+            </div>
+        </div>
+        <div class="hero__item">
+            <picture>
+                <source srcset="https://unsplash.it/id/1015/300/169" media="(min-width: 1000px)">
+                <source srcset="https://unsplash.it/id/1015/500/350" media="(min-width: 568px)">
+                <source srcset="/bbc/hidden.gif" media="(min-width: 1px)">
+                <img src="https://unsplash.it/id/1015/500/350" alt="…" loading="lazy">
+            </picture>
+            <div class="hero__content flow">
+                <h2>
+                    <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
+                </h2>
+                <p class="tag">Lorem</p>
+            </div>
+        </div>
+        <div class="hero__item">
+            <picture>
+                <source srcset="https://unsplash.it/id/1025/300/169" media="(min-width: 1000px)">
+                <source srcset="https://unsplash.it/id/1025/500/350" media="(min-width: 568px)">
+                <source srcset="/bbc/hidden.gif" media="(min-width: 1px)">
+                <img src="https://unsplash.it/id/1025/500/350" alt="…" loading="lazy">
+            </picture>
+            <div class="hero__content flow">
+                <h2>
+                    <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
+                </h2>
+                <p class="tag">Lorem</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section__center">
+    <header class="section__title">
+        <h3>News</h3>
+    </header>
+    <div class="news">
+        <div class="news_item flow">
+            <picture>
+                <source srcset="https://unsplash.it/id/1055/406/230" media="(min-width: 568px)">
+                <source srcset="/bbc/hidden.gif" media="(min-width: 1px)">
+                <img src="https://unsplash.it/id/1055/406/230" alt="…" loading="lazy">
+            </picture>
+            <h2>
+                <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
+            </h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi at maxime sed sint? Id, optio?</p>
+            <p class="tag">Lorem</p>
+        </div>
+        <div class="news_item flow">
+            <picture>
+                <source srcset="https://unsplash.it/id/1058/406/230" media="(min-width: 568px)">
+                <source srcset="/bbc/hidden.gif" media="(min-width: 1px)">
+                <img src="https://unsplash.it/id/1058/406/230" alt="…" loading="lazy">
+            </picture>
+            <h2>
+                <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
+            </h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi at maxime sed sint? Id, optio?</p>
+            <p class="tag">Lorem</p>
+        </div>
+        <div class="news_item flow">
+            <picture>
+                <source srcset="https://unsplash.it/id/1066/406/230" media="(min-width: 568px)">
+                <source srcset="/bbc/hidden.gif" media="(min-width: 1px)">
+                <img src="https://unsplash.it/id/1066/406/230" alt="…" loading="lazy">
+            </picture>
+            <h2>
+                <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
+            </h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi at maxime sed sint? Id, optio?</p>
+            <p class="tag">Lorem</p>
+        </div>
+    </div>
+</div>
+
+<div class="section__center">
+    <header class="section__title">
+        <h3>Sports</h3>
+    </header>
+    <div class="news">
+        <div class="news_item flow">
+            <picture>
+                <source srcset="https://unsplash.it/id/1027/406/230" media="(min-width: 568px)">
+                <source srcset="/bbc/hidden.gif" media="(min-width: 1px)">
+                <img src="https://unsplash.it/id/1027/406/230" alt="…" loading="lazy">
+            </picture>
+            <h2>
+                <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
+            </h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi at maxime sed sint? Id, optio?</p>
+            <p class="tag">Lorem</p>
+        </div>
+        <div class="news_item flow">
+            <picture>
+                <source srcset="https://unsplash.it/id/1033/406/230" media="(min-width: 568px)">
+                <source srcset="/bbc/hidden.gif" media="(min-width: 1px)">
+                <img src="https://unsplash.it/id/1033/406/230" alt="…" loading="lazy">
+            </picture>
+            <h2>
+                <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
+            </h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi at maxime sed sint? Id, optio?</p>
+            <p class="tag">Lorem</p>
+        </div>
+        <div class="news_item flow">
+            <picture>
+                <source srcset="https://unsplash.it/id/104/406/230" media="(min-width: 568px)">
+                <source srcset="/bbc/hidden.gif" media="(min-width: 1px)">
+                <img src="https://unsplash.it/id/104/406/230" alt="…" loading="lazy">
+            </picture>
+            <h2>
+                <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
+            </h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi at maxime sed sint? Id, optio?</p>
+            <p class="tag">Lorem</p>
+        </div>
+    </div>
+</div>
+
+<div class="extmenu" id="extmenu">
+    <ul>
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="#">News</a>
+        </li>
+        <li>
+            <a href="#">Sport</a>
+        </li>
+        <li>
+            <a href="#">Reel</a>
+        </li>
+        <li>
+            <a href="#">Worklife</a>
+        </li>
+        <li>
+            <a href="#">Travel</a>
+        </li>
+        <li>
+            <a href="#">Future</a>
+        </li>
+    </ul>
+</div>
+
+<script src="/bbc/script.js" defer></script>
+
+</body>
+</html>
