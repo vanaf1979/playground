@@ -144,7 +144,7 @@ a:hover {
     font-size: 0.8rem;
 }
 
-.header__list li:not(:first-child, :last-child):after {
+.header__list li:nth-child(n+3):nth-child(-n+9):after {
     display: none;
     content: '';
     width: 100%;
@@ -154,7 +154,7 @@ a:hover {
     border-bottom: solid 4px var(--sec-clr, red);
 }
 
-.header__list li:not(:first-child, :last-child):hover:after {
+.header__list li:nth-child(n+3):nth-child(-n+9):hover:after {
     display: block;
 }
 
