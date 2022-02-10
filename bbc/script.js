@@ -10,7 +10,7 @@
 * Run code on window load.
 * ----------------------------------------------
 */
-window.onload = function () {
+window.onload = () => {
     setNav();
 };
 
