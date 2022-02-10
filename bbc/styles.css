@@ -154,8 +154,10 @@ a:hover {
     border-bottom: solid 4px var(--sec-clr, red);
 }
 
-.header__list li:nth-child(n+3):nth-child(-n+9):hover:after {
-    display: block;
+@media not all and (pointer: coarse) {
+    .header__list li:nth-child(n+3):nth-child(-n+9):hover:after {
+        display: block;
+    }
 }
 
 .header__list li:first-of-type {
