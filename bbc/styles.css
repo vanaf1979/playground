@@ -50,13 +50,13 @@ h3 {
 }
 
 h1 {
-    font-size: clamp(1rem, 4vw, 1.6rem);
-    line-height: 1.6rem;
+    font-size: clamp(0.8rem, 4vw, 1.6rem);
+    line-height: 1.8rem;
 }
 
 h2 {
-    font-size: clamp(1rem, 4vw, 1.2rem);
-    line-height: 1.2rem;
+    font-size: clamp(0.8rem, 4vw, 1.2rem);
+    line-height: 1.4rem;
 }
 
 p,
