@@ -1,0 +1,226 @@
+/*
+* ----------------------------------------------
+* Homepage styles
+* Depends on: reset.css
+* ----------------------------------------------
+* 01 - Globals
+* 02 - Utilities
+* ...
+* ----------------------------------------------
+*/
+
+/*
+* ----------------------------------------------
+* 01 - Globals
+* ----------------------------------------------
+*/
+:root {
+    --clr-primary: hsl(200, 57%, 48%);
+    --clr-accent-light: hsl(200, 57%, 80%);
+    --text-color: #111111;
+    --flow-space: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0 0 5rem 0;
+    padding: 0;
+}
+
+/*
+* ----------------------------------------------
+* 02 - Utilities
+* ----------------------------------------------
+*/
+.section {
+}
+
+.section__center {
+    margin: 0 auto;
+    width: min(1180px, calc(100% - 2rem));
+}
+
+.flow > * + * {
+    margin-top: var(--flow-space, 1rem);
+}
+
+.heading {
+    margin: 5rem auto 2rem auto;
+    padding-left: 1rem;
+    border-left: solid 4px var(--clr-primary);
+}
+.heading h3 {
+    display: block;
+    color: var(--text-color);
+}
+.heading p {
+    color: var(--clr-primary);
+}
+
+.button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    background-color: var(--clr-primary);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+@media screen and ( min-width: 568px ) {
+
+}
+
+@media screen and ( min-width: 1000px ) {
+
+}
+
+
+/*
+* ----------------------------------------------
+* XX - Hero
+* ----------------------------------------------
+*/
+.hero {
+    display: grid;
+    grid-template:
+        "large large" auto
+        "small-one small-two" 300px / 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem auto 1rem auto;
+}
+
+.hero__item {
+    background-color: #222222;
+    border: solid 1px var(--clr-accent-light);
+}
+
+.hero__item:nth-of-type(1) {
+    grid-area: large;
+}
+
+.hero__item:nth-of-type(2) {
+    grid-area: small-one;
+}
+
+.hero__item:nth-of-type(3) {
+    grid-area: small-two;
+}
+
+.hero__item.testwijzer {
+    position: relative;
+    background-color: #efefef;
+    overflow: hidden;
+}
+
+.hero__item.testwijzer:nth-of-type(3) {
+    background-color: #C2C5D9;
+}
+
+.hero__item.testwijzer svg {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    opacity: 0.25;
+}
+
+.hero__content {
+    position: absolute;
+    inset: 1.5rem 1rem;
+    z-index: 100;
+}
+
+@media screen and ( min-width: 568px ) {
+    .hero {
+        display: grid;
+        grid-template:
+            "large large" auto
+            "small-one small-two" 200px / 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .hero__item.testwijzer h3 {
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+    }
+}
+
+@media screen and ( min-width: 1000px ) {
+    .hero {
+        display: grid;
+        grid-template: "large small-one small-two" auto / 2fr 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .hero__item.testwijzer h3 {
+        font-size: 1.8rem;
+        line-height: 2rem;
+    }
+}
+
+
+.usps {
+    display: block;
+    gap: 1rem;
+    margin: 0 auto 0rem auto;
+    padding: 0 0 1rem 0;
+    border-bottom: solid 1px var(--clr-accent-light);
+}
+
+.usps__item {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+}
+
+.usps__item:nth-of-type(1) {
+    display: flex;
+}
+
+.usps__item svg {
+    width: 50px;
+}
+
+.usps__content p {
+    font-size: 0.8rem;
+    line-height: 1rem;
+}
+
+@media screen and ( min-width: 568px ) {
+    .usps {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .usps__item:nth-of-type(2) {
+        display: flex;
+    }
+}
+
+@media screen and ( min-width: 1000px ) {
+    .usps {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .usps__item:nth-of-type(3),
+    .usps__item:nth-of-type(4) {
+        display: flex;
+    }
+
+}
+
+
+.info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.info__item {
+    padding: 1rem;
+    background-color: #efefef;
+    border-radius: 0.1rem;
+}

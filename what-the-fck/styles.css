@@ -1,0 +1,26 @@
+html,
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+}
+.dev {
+    width: min(500px, calc(100vw - 2rem));
+    margin: 0 auto;
+    text-align: center;
+}
+svg {
+    height:220px;
+}
+button {
+    padding: 1rem 1.4rem;
+    background-color: hsl(194, 100%, 50%);
+    border: solid 2px hsl(194, 100%, 45%);
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+}

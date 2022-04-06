@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    background-color: hsl(0, 0%, 4%);
+}
+
+.stage {
+    transform: perspective(850px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, -75deg));
+}
+
+.cube {
+    width: calc(var(--y) * 1vmin);
+    height: calc(var(--z) * 1vmin);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cube > div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.cube .top {
+    width: calc(var(--y) * 1vmin);
+    height: calc(var(--x) * 1vmin);
+    background-color: var(--clr-top, hsl(220, 50%, 20%));
+    transform: translate(-50%, -50%) translateY(calc(calc(var(--z) * -1vmin) / 2)) rotateX(90deg);
+}
+
+.cube .side:nth-of-type(2) {
+    width: calc(var(--x) * 1vmin);
+    height: calc(var(--z) * 1vmin);
+    background-color: var(--clr-back, hsl(220, 50%, 20%));
+    transform: translate(-50%, -50%) rotateY(90deg) translateZ(calc(calc(var(--y) * 1vmin) / -2));
+}
+
+.cube .side:nth-of-type(3) {
+    width: calc(var(--y) * 1vmin);
+    height: calc(var(--z) * 1vmin);
+    background-color: var(--clr-right, hsl(220, 50%, 28%));
+    transform: translate(-50%, -50%) translateZ(calc(calc(var(--x) * 1vmin) / -2));
+}
+
+.cube .side:nth-of-type(4) {
+    width: calc(var(--x) * 1vmin);
+    height: calc(var(--z) * 1vmin);
+    background-color: var(--clr-front, hsl(220, 50%, 24%));
+    transform: translate(-50%, -50%) rotateY(90deg) translateZ(calc(calc(var(--y) * -1vmin) / -2));
+}
+
+.cube .side:nth-of-type(5) {
+    width: calc(var(--y) * 1vmin);
+    height: calc(var(--z) * 1vmin);
+    background-color: var(--clr-left, hsl(220, 50%, 20%));
+    transform: translate(-50%, -50%) translateZ(calc(calc(var(--x) * -1vmin) / -2));
+}
+
+.cube .bottom {
+    width: calc(var(--y) * 1vmin);
+    height: calc(var(--x) * 1vmin);
+    background-color: var(--clr-bottom, hsl(220, 50%, 15%));
+    transform: translate(-50%, -50%) translateY(calc(calc(var(--z) * 1vmin) / 2)) rotateX(90deg);
+}
+
+.floor {
+    transform: translate(-50%, -50%) translateY(20vmin)
+}
+
+.wall {
+    transform: translate(-50%, -50%) translateX(-30vmin)
+}
+
+.wall-two {
+    transform: translate(-50%, -50%) translateZ(-30vmin)
+}
+
+.floor,
+.wall,
+.wall-two {
+    --clr-top: hsl(80, 5%, 80%);
+    --clr-back: hsl(80, 5%, 90%);
+    --clr-right: hsl(80, 5%, 90%);
+    --clr-front: hsl(80, 5%, 85%);
+    --clr-left: hsl(80, 5%, 80%);
+    --clr-bottom: hsl(80, 5%, 90%);
+}
+
+
+
