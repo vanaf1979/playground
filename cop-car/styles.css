@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-color: hsl(220, 50%, 6%);
+    background-image: url(./stars.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

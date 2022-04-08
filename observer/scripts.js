@@ -262,21 +262,21 @@ const init = () => {
      * Add ambient light to the scene.
      */
     const light_color = new THREE.Color("hsl(220, 25%, 50%)");
-    const ambient_light = new THREE.AmbientLight(light_color, 3);
+    const ambient_light = new THREE.AmbientLight(light_color, 4);
     scene.add(ambient_light);
 
     /*
      * Add point-light to the scene.
      */
     const sec_light_color = new THREE.Color("hsl(50, 25%, 50%)");
-    const light = new THREE.PointLight(sec_light_color, 2, 100);
+    const light = new THREE.PointLight(sec_light_color, 2.5, 100);
     light.position.set(-5, 3, 5);
     scene.add(light);
 
     /*
      * Add another point-light to the scene.
      */
-    const sec_light = new THREE.PointLight(light_color, 2, 100);
+    const sec_light = new THREE.PointLight(light_color, 2.5, 100);
     sec_light.position.set(5, 3, -7);
     scene.add(sec_light);
 };
