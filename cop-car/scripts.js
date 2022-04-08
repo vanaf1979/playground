@@ -75,9 +75,6 @@ const init = () => {
     const blue_light_color = new THREE.Color("hsl(220, 100%, 50%)");
     const blue_light = new THREE.PointLight(blue_light_color, 0, 30);
     blue_light.position.set(-.5, 5.2, 1.7);
-    //scene.add(light);
-    //const lightHelper = new THREE.PointLightHelper( light, 1 );
-    //scene.add( lightHelper );
 
     /*
      * Add another point-light to the scene.
@@ -85,9 +82,6 @@ const init = () => {
     const red_light_color = new THREE.Color("hsl(0, 100%, 50%)");
     const red_light = new THREE.PointLight(red_light_color, 7, 30);
     red_light.position.set(.5, 5.2, 1.7);
-    //scene.add(sec_light);
-    //const sec_lightHelper = new THREE.PointLightHelper( sec_light, 1 );
-    //scene.add( sec_lightHelper );
 
     /*
     * Add another point-light to the scene.
@@ -95,9 +89,6 @@ const init = () => {
     const yellow_light_color = new THREE.Color("hsl(200, 50%, 80%)");
     const front_light = new THREE.PointLight(yellow_light_color, 6, 100);
     front_light.position.set(0, 5.5, -.2);
-    //scene.add(front_light);
-    //const sec_lightHelper = new THREE.PointLightHelper( sec_light, 1 );
-    //scene.add( sec_lightHelper );
 
     /*
      * Load Belder scene.
@@ -123,7 +114,7 @@ const init = () => {
             scene.add(car);
 
             /*
-             * Listen for mouse movement and rotate the body.
+             * Listen for mouse movement and move the car.
              */
             Observer.create({
                 type: "wheel,touch,scroll,pointer",
@@ -146,7 +137,7 @@ const init = () => {
             });
 
             /*
-             * Rotate the clouds group.
+             * Move the road.
              */
             gsap.to(road.rotation, {
                 duration: 15,
@@ -156,7 +147,7 @@ const init = () => {
             })
 
             /*
-             * Rotate the top roto blades.
+             * make the car wobble.
              */
             gsap.to(car.position, {
                 duration: .7,
@@ -167,7 +158,7 @@ const init = () => {
             })
 
             /*
-             * Rotate the tail roto blades.
+             * make the lights go on and off.
              */
             gsap.to(blue_light, {
                 duration: .2,
