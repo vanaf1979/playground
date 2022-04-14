@@ -14,7 +14,7 @@ const deviceOrientationHandler = (e) => {
 
 const init = () => {
     if (window.DeviceOrientationEvent) {
-        document.addEventListener('deviceorientation', deviceOrientationHandler, false);
+        document.addEventListener('deviceorientation', deviceOrientationHandler, true);
         const absolute = document.getElementById('absolute');
         absolute.value = JSON.stringify('Supportedd');
     } else {
