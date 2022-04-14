@@ -68,7 +68,22 @@ const init = () => {
         camera.updateProjectionMatrix();
     });
 
-    window.addEventListener('deviceorientation', deviceOrientationHandler );
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+        DeviceOrientationEvent.requestPermission().then(permissionState => {
+            if (permissionState === 'granted') {
+                window.addEventListener('deviceorientation', deviceOrientationHandler );
+            }
+        });
+    } else {
+        window.addEventListener('deviceorientation', deviceOrientationHandler );
+    }
+    // DeviceOrientationEvent.requestPermission().then(response => {
+    //     if (response === 'granted') {
+    //         window.addEventListener('deviceorientation', deviceOrientationHandler );
+    //     }
+    // })
+
+
 
 
     controls = new ThreeControls.OrbitControls(camera, renderer.domElement);
