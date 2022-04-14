@@ -1,6 +1,10 @@
 const init = () => {
     if (window.DeviceOrientationEvent) {
         document.addEventListener('deviceorientation', deviceOrientationHandler, false);
+        const absolute = document.getElementById('absolute');
+        absolute.value = JSON.stringify('Supported');
+    } else {
+        absolute.value = JSON.stringify('Nope');
     }
 }
 
