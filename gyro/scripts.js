@@ -2,20 +2,11 @@
  * ThreeJs.
  */
 import * as THREE from 'https://cdn.skypack.dev/three@0.135.0';
-import * as ThreeControls from "https://cdn.skypack.dev/three-controls@1.0.1";
+//import * as ThreeControls from "https://cdn.skypack.dev/three-controls@1.0.1";
 import {GLTFLoader} from 'https://cdn.skypack.dev/three@0.135.0/examples/jsm/loaders/GLTFLoader.js';
 import {RGBELoader} from 'https://cdn.skypack.dev/three@0.135.0/examples/jsm/loaders/RGBELoader.js';
 
-/*
- * Gsap and Observer plugin.
- */
-import gsap from "https://cdn.skypack.dev/gsap@3.10.2";
-import Observer from "https://cdn.skypack.dev/gsap@3.10.2/Observer";
-gsap.registerPlugin(Observer);
-
-
-let scene, camera, renderer, controls, cubeGroup;
-let ringXGroup, ringYGroup, ringZGroup;
+let scene, camera, renderer, controls, cubeGroup, ringXGroup, ringYGroup, ringZGroup;
 
 const init = () => {
     /*
@@ -44,10 +35,6 @@ const init = () => {
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.toneMapping = THREE.ReinhardToneMapping;
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    renderer.shadowMap.size = 2048;
 
     /*
      * Append to document.
@@ -63,11 +50,11 @@ const init = () => {
         camera.updateProjectionMatrix();
     });
 
-    //controls = new ThreeControls.OrbitControls(camera, renderer.domElement);
-
+    /*
+     * Add hdr lighting.
+     */
     new RGBELoader().load('/gyro/map2.hdr', function (texture) {
         texture.mapping = THREE.EquirectangularReflectionMapping;
-        //scene.background = texture;
         scene.environment = texture;
     });
 
@@ -85,8 +72,6 @@ const init = () => {
     const blue_light = new THREE.PointLight(blue_light_color, 25, 100);
     blue_light.position.set(3, 1, 3);
     scene.add(blue_light);
-    const blueLightHelper = new THREE.PointLightHelper( blue_light, 1 );
-    scene.add( blueLightHelper );
 
     /*
      * Add another point-light to the scene.
@@ -95,10 +80,11 @@ const init = () => {
     const red_light = new THREE.PointLight(red_light_color, 25, 100);
     red_light.position.set(-3, 0, 3);
     scene.add(red_light);
-    const redLightHelper = new THREE.PointLightHelper( red_light, 1 );
-    scene.add( redLightHelper );
 
 
+    /*
+     * Load the blender models
+     */
     const loader = new GLTFLoader();
     loader.load(
         "/gyro/gyro.glb",
@@ -141,22 +127,35 @@ const init = () => {
     );
 };
 
+/*
+ * Animate the scene.
+ */
 const animate = () => {
     requestAnimationFrame(animate);
     render();
 };
 
+/*
+ * Render the scene.
+ */
 const render = () => {
     renderer.render(scene, camera);
 };
 
 
+/*
+ * Handle orientation events.
+ */
 const deviceOrientationHandler = (e) => {
     ringXGroup.rotation.x = THREE.MathUtils.degToRad(e.beta) * -1;
     ringYGroup.rotation.z = THREE.MathUtils.degToRad(e.gamma) * -1;
     ringZGroup.rotation.y = THREE.MathUtils.degToRad(e.alpha) * -1;
 }
 
+
+/*
+ * Initialize orientation events.and start the scene.
+ */
 const start = () => {
     if (
         typeof DeviceOrientationEvent !== 'undefined' &&
@@ -164,11 +163,11 @@ const start = () => {
     ) {
         DeviceOrientationEvent.requestPermission().then(permissionState => {
             if (permissionState === 'granted') {
-                window.addEventListener('deviceorientation', deviceOrientationHandler );
+                window.addEventListener('deviceorientation', deviceOrientationHandler);
             }
         });
     } else {
-        window.addEventListener('deviceorientation', deviceOrientationHandler );
+        window.addEventListener('deviceorientation', deviceOrientationHandler);
     }
 
     startBt.remove();
@@ -176,5 +175,8 @@ const start = () => {
     animate();
 }
 
+/*
+ * Add click event to the start button.
+ */
 const startBt = document.getElementById('start');
 startBt.addEventListener('click', start);
