@@ -74,12 +74,14 @@ const init = () => {
         typeof DeviceOrientationEvent !== 'undefined' &&
         typeof DeviceOrientationEvent.requestPermission === 'function'
     ) {
+        alert('avail');
         DeviceOrientationEvent.requestPermission().then(permissionState => {
             if (permissionState === 'granted') {
                 window.addEventListener('deviceorientation', deviceOrientationHandler );
             }
         });
     } else {
+        alert('nope');
         window.addEventListener('deviceorientation', deviceOrientationHandler );
     }
 
