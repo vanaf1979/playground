@@ -16,12 +16,6 @@ gsap.registerPlugin(Observer);
 
 let scene, camera, renderer, controls, cubeGroup;
 
-const deviceOrientationHandler = (e) => {
-    cubeGroup.rotation.z = THREE.MathUtils.degToRad(e.alpha) * -1;
-    cubeGroup.rotation.x = THREE.MathUtils.degToRad(e.beta) * -1;
-    cubeGroup.rotation.y = THREE.MathUtils.degToRad(e.gamma) * -1;
-}
-
 const init = () => {
     /*
      * Create the scene.
@@ -70,31 +64,34 @@ const init = () => {
 
     controls = new ThreeControls.OrbitControls(camera, renderer.domElement);
 
+
+    /*
+     * Add ambient light to the scene.
+     */
+    const light_color = new THREE.Color("hsl(220, 25%, 50%)");
+    const ambient_light = new THREE.AmbientLight(light_color, 1);
+    scene.add(ambient_light);
+
     /*
      * Add point-light to the scene.
      */
     const blue_light_color = new THREE.Color("hsl(220, 100%, 50%)");
-    const blue_light = new THREE.PointLight(blue_light_color, 0, 30);
-    blue_light.position.set(-.5, 5.2, 1.7);
+    const blue_light = new THREE.PointLight(blue_light_color, 3, 30);
+    blue_light.position.set(6, 6, 6);
+    scene.add(blue_light);
 
     /*
      * Add another point-light to the scene.
      */
-    const red_light_color = new THREE.Color("hsl(0, 100%, 50%)");
-    const red_light = new THREE.PointLight(red_light_color, 7, 30);
-    red_light.position.set(.5, 5.2, 1.7);
-
-    /*
-    * Add another point-light to the scene.
-    */
-    const yellow_light_color = new THREE.Color("hsl(200, 50%, 80%)");
-    const front_light = new THREE.PointLight(yellow_light_color, 6, 100);
-    front_light.position.set(0, 5.5, -.2);
+    const red_light_color = new THREE.Color("hsl(50, 100%, 50%)");
+    const red_light = new THREE.PointLight(red_light_color, 3, 30);
+    red_light.position.set(-6, -6, -6);
+    scene.add(red_light);
 
 
     const blueGeometry = new THREE.BoxGeometry(4, 4, 4);
 
-    const color = new THREE.Color(`hsl(222, 50%, 40%)`);
+    const color = new THREE.Color(`hsl(222, 50%, 80%)`);
 
     const blueMaterial = new THREE.MeshLambertMaterial({
         color,
@@ -122,6 +119,12 @@ const render = () => {
 };
 
 
+const deviceOrientationHandler = (e) => {
+    cubeGroup.rotation.z = THREE.MathUtils.degToRad(e.alpha) * -1;
+    cubeGroup.rotation.x = THREE.MathUtils.degToRad(e.beta) * -1;
+    cubeGroup.rotation.y = THREE.MathUtils.degToRad(e.gamma) * -1;
+}
+
 const start = () => {
     if (
         typeof DeviceOrientationEvent !== 'undefined' &&
@@ -136,22 +139,9 @@ const start = () => {
         window.addEventListener('deviceorientation', deviceOrientationHandler );
     }
 
-
+    startBt.remove();
     init();
     animate();
-
-    // if (
-    //     typeof DeviceMotionEvent !== 'undefined' &&
-    //     typeof DeviceMotionEvent.requestPermission === 'function'
-    // ) {
-    //     DeviceMotionEvent.requestPermission().then(permissionState => {
-    //         if (permissionState === 'granted') {
-    //             window.addEventListener('devicemotion', deviceOrientationHandler );
-    //         }
-    //     });
-    // } else {
-    //     window.addEventListener('devicemotion', deviceOrientationHandler );
-    // }
 }
 
 const startBt = document.getElementById('start');
