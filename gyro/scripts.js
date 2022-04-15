@@ -83,6 +83,19 @@ const init = () => {
         window.addEventListener('deviceorientation', deviceOrientationHandler );
     }
 
+    if (
+        typeof DeviceMotionEvent !== 'undefined' &&
+        typeof DeviceMotionEvent.requestPermission === 'function'
+    ) {
+        DeviceMotionEvent.requestPermission().then(permissionState => {
+            if (permissionState === 'granted') {
+                window.addEventListener('devicemotion', deviceOrientationHandler );
+            }
+        });
+    } else {
+        window.addEventListener('devicemotion', deviceOrientationHandler );
+    }
+
     controls = new ThreeControls.OrbitControls(camera, renderer.domElement);
 
     /*
