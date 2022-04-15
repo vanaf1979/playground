@@ -3,8 +3,8 @@
  */
 import * as THREE from 'https://cdn.skypack.dev/three@0.135.0';
 import * as ThreeControls from "https://cdn.skypack.dev/three-controls@1.0.1";
-// import {GLTFLoader} from 'https://cdn.skypack.dev/three@0.135.0/examples/jsm/loaders/GLTFLoader.js';
-// import {RGBELoader} from 'https://cdn.skypack.dev/three@0.135.0/examples/jsm/loaders/RGBELoader.js';
+import {GLTFLoader} from 'https://cdn.skypack.dev/three@0.135.0/examples/jsm/loaders/GLTFLoader.js';
+import {RGBELoader} from 'https://cdn.skypack.dev/three@0.135.0/examples/jsm/loaders/RGBELoader.js';
 
 /*
  * Gsap and Observer plugin.
@@ -15,6 +15,7 @@ gsap.registerPlugin(Observer);
 
 
 let scene, camera, renderer, controls, cubeGroup;
+let ringXGroup, ringYGroup, ringZGroup;
 
 const init = () => {
     /*
@@ -31,8 +32,8 @@ const init = () => {
         0.1,
         1000
     );
-    camera.lookAt(0, 0, 0);
-    camera.position.set(.5, .5, 12);
+    camera.rotation.set(0, .3, 0);
+    camera.position.set(1.5, 0, 5);
 
     /*
      * Create renderer.
@@ -62,51 +63,82 @@ const init = () => {
         camera.updateProjectionMatrix();
     });
 
-    controls = new ThreeControls.OrbitControls(camera, renderer.domElement);
+    //controls = new ThreeControls.OrbitControls(camera, renderer.domElement);
 
+    new RGBELoader().load('/gyro/map2.hdr', function (texture) {
+        texture.mapping = THREE.EquirectangularReflectionMapping;
+        //scene.background = texture;
+        scene.environment = texture;
+    });
 
     /*
      * Add ambient light to the scene.
      */
-    const light_color = new THREE.Color("hsl(220, 25%, 50%)");
-    const ambient_light = new THREE.AmbientLight(light_color, 1);
+    const light_color = new THREE.Color("hsl(50, 100%, 100%)");
+    const ambient_light = new THREE.AmbientLight(0xffffff, 50);
     scene.add(ambient_light);
 
     /*
      * Add point-light to the scene.
      */
-    const blue_light_color = new THREE.Color("hsl(220, 100%, 50%)");
-    const blue_light = new THREE.PointLight(blue_light_color, 3, 30);
-    blue_light.position.set(6, 6, 6);
+    const blue_light_color = new THREE.Color("hsl(200, 50%, 50%)");
+    const blue_light = new THREE.PointLight(blue_light_color, 25, 100);
+    blue_light.position.set(3, 1, 3);
     scene.add(blue_light);
+    const blueLightHelper = new THREE.PointLightHelper( blue_light, 1 );
+    scene.add( blueLightHelper );
 
     /*
      * Add another point-light to the scene.
      */
-    const red_light_color = new THREE.Color("hsl(50, 100%, 50%)");
-    const red_light = new THREE.PointLight(red_light_color, 3, 30);
-    red_light.position.set(-6, -6, -6);
+    const red_light_color = new THREE.Color("hsl(160, 100%, 50%)");
+    const red_light = new THREE.PointLight(red_light_color, 25, 100);
+    red_light.position.set(-3, 0, 3);
     scene.add(red_light);
+    const redLightHelper = new THREE.PointLightHelper( red_light, 1 );
+    scene.add( redLightHelper );
 
 
-    const blueGeometry = new THREE.BoxGeometry(4, 4, 4);
+    const loader = new GLTFLoader();
+    loader.load(
+        "/gyro/gyro.glb",
+        function (gltf) {
 
-    const color = new THREE.Color(`hsl(222, 50%, 80%)`);
+            ringXGroup = new THREE.Group();
+            const ringX = gltf.scene.getObjectByName('ring_x');
+            const pin = gltf.scene.getObjectByName('pin');
+            const plate = gltf.scene.getObjectByName('plate');
+            ringXGroup.add(ringX);
+            ringXGroup.add(pin);
+            ringXGroup.add(plate);
 
-    const blueMaterial = new THREE.MeshLambertMaterial({
-        color,
-        transparent: false,
-        opacity: 1
-    });
+            ringYGroup = new THREE.Group();
+            const ringY = gltf.scene.getObjectByName('ring_y');
+            ringYGroup.add(ringY);
+            ringYGroup.add(ringXGroup);
 
+            ringZGroup = new THREE.Group();
+            const ringZ = gltf.scene.getObjectByName('ring_z');
+            ringZGroup.add(ringZ);
+            ringZGroup.add(ringYGroup);
 
-    const blueCube = new THREE.Mesh(blueGeometry, blueMaterial);
+            const gyroGroup = new THREE.Group();
+            const ringOuter = gltf.scene.getObjectByName('ring_outer');
+            const base = gltf.scene.getObjectByName('base');
+            const table = gltf.scene.getObjectByName('table');
+            gyroGroup.add(ringOuter);
+            gyroGroup.add(base);
+            gyroGroup.add(table);
+            gyroGroup.add(ringZGroup);
+            gyroGroup.position.y = .3;
+            scene.add(gyroGroup);
 
-    cubeGroup = new THREE.Group();
-
-    cubeGroup.add(blueCube);
-
-    scene.add(cubeGroup);
+        },
+        undefined,
+        function (error) {
+            console.error(error);
+        }
+    );
 };
 
 const animate = () => {
@@ -120,9 +152,9 @@ const render = () => {
 
 
 const deviceOrientationHandler = (e) => {
-    cubeGroup.rotation.z = THREE.MathUtils.degToRad(e.alpha) * -1;
-    cubeGroup.rotation.x = THREE.MathUtils.degToRad(e.beta) * -1;
-    cubeGroup.rotation.y = THREE.MathUtils.degToRad(e.gamma) * -1;
+    ringXGroup.rotation.x = THREE.MathUtils.degToRad(e.beta) * -1;
+    ringYGroup.rotation.z = THREE.MathUtils.degToRad(e.gamma) * -1;
+    ringZGroup.rotation.y = THREE.MathUtils.degToRad(e.alpha) * -1;
 }
 
 const start = () => {
