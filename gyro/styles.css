@@ -11,4 +11,7 @@ body {
     background-color: #111111;
     color: #ffffff;
     font-size: 2rem;
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
 }
