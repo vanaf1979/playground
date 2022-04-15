@@ -17,9 +17,9 @@ gsap.registerPlugin(Observer);
 let scene, camera, renderer, controls, cubeGroup;
 
 const deviceOrientationHandler = (e) => {
-    cubeGroup.rotation.z = THREE.MathUtils.degToRad(e.alpha);
-    cubeGroup.rotation.x = THREE.MathUtils.degToRad(e.beta);
-    cubeGroup.rotation.y = THREE.MathUtils.degToRad(e.gamma);
+    cubeGroup.rotation.z = THREE.MathUtils.degToRad(e.alpha) * -1;
+    cubeGroup.rotation.x = THREE.MathUtils.degToRad(e.beta) * -1;
+    cubeGroup.rotation.y = THREE.MathUtils.degToRad(e.gamma) * -1;
 }
 
 const init = () => {
