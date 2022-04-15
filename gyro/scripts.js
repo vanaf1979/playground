@@ -33,7 +33,7 @@ const init = () => {
         1000
     );
     camera.rotation.set(0, .3, 0);
-    camera.position.set(1.5, 0, 5);
+    camera.position.set(1.1, 0, 3.5);
 
     /*
      * Create renderer.
