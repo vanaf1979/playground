@@ -68,34 +68,6 @@ const init = () => {
         camera.updateProjectionMatrix();
     });
 
-    window.addEventListener('deviceorientation', deviceOrientationHandler );
-
-    if (
-        typeof DeviceOrientationEvent !== 'undefined' &&
-        typeof DeviceOrientationEvent.requestPermission === 'function'
-    ) {
-        DeviceOrientationEvent.requestPermission().then(permissionState => {
-            if (permissionState === 'granted') {
-                window.addEventListener('deviceorientation', deviceOrientationHandler );
-            }
-        });
-    } else {
-        window.addEventListener('deviceorientation', deviceOrientationHandler );
-    }
-
-    if (
-        typeof DeviceMotionEvent !== 'undefined' &&
-        typeof DeviceMotionEvent.requestPermission === 'function'
-    ) {
-        DeviceMotionEvent.requestPermission().then(permissionState => {
-            if (permissionState === 'granted') {
-                window.addEventListener('devicemotion', deviceOrientationHandler );
-            }
-        });
-    } else {
-        window.addEventListener('devicemotion', deviceOrientationHandler );
-    }
-
     controls = new ThreeControls.OrbitControls(camera, renderer.domElement);
 
     /*
@@ -149,5 +121,38 @@ const render = () => {
     renderer.render(scene, camera);
 };
 
-init();
-animate();
+
+const start = () => {
+    if (
+        typeof DeviceOrientationEvent !== 'undefined' &&
+        typeof DeviceOrientationEvent.requestPermission === 'function'
+    ) {
+        DeviceOrientationEvent.requestPermission().then(permissionState => {
+            if (permissionState === 'granted') {
+                window.addEventListener('deviceorientation', deviceOrientationHandler );
+            }
+        });
+    } else {
+        window.addEventListener('deviceorientation', deviceOrientationHandler );
+    }
+
+
+    init();
+    animate();
+
+    // if (
+    //     typeof DeviceMotionEvent !== 'undefined' &&
+    //     typeof DeviceMotionEvent.requestPermission === 'function'
+    // ) {
+    //     DeviceMotionEvent.requestPermission().then(permissionState => {
+    //         if (permissionState === 'granted') {
+    //             window.addEventListener('devicemotion', deviceOrientationHandler );
+    //         }
+    //     });
+    // } else {
+    //     window.addEventListener('devicemotion', deviceOrientationHandler );
+    // }
+}
+
+const startBt = document.getElementById('start');
+startBt.addEventListener('click', start);
