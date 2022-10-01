@@ -20,6 +20,7 @@ const init = () => {
      * Create the scene.
      */
     scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0x000000, 0, 8.5);
 
     /*
      * Create Camera.

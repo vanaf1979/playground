@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="/machine/reset.css">
+    <link rel="stylesheet" href="/machine/styles.css">
+</head>
+<body>
+
+<div class="spacer"></div>
+
+<div class="demo">
+    <div class="demo__canvas" id="canvas"></div>
+
+    <div class="demo__content">
+        <ul class="demo__nav">
+            <li>
+                <a id="one" class="tab" data-section="0" data-text="text-one" data-rot-x="34" data-rot-y="-46" data-rot-z="-1" data-cam-x="24" data-cam-y="10" data-cam-z="40">
+                    <span>01</span>
+                    Breaks
+                </a>
+            </li>
+            <li>
+                <a id="two" class="tab" data-section="1" data-text="text-two" data-rot-x="16" data-rot-y="-24" data-rot-z="0" data-cam-x="30" data-cam-y="0" data-cam-z="35">
+                    <span>02</span>
+                    Spokes
+                </a>
+            </li>
+            <li>
+                <a id="three" class="tab" data-section="2" data-text="text-three" data-rot-x="3" data-rot-y="145" data-rot-z="-1" data-cam-x="22.5" data-cam-y="0" data-cam-z="27.5">
+                    <span>03</span>
+                    Gears
+                </a>
+            </li>
+            <li>
+                <a id="four" class="tab" data-section="3" data-text="text-four" data-rot-x="34" data-rot-y="174" data-rot-z="0" data-cam-x="16.4" data-cam-y="1.7" data-cam-z="24">
+                    <span>04</span>
+                    Pedals
+                </a>
+            </li>
+        </ul>
+
+        <div class="demo__loader">
+            <!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
+            <svg width="45" height="45" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+                <g fill="none" fill-rule="evenodd" transform="translate(1 1)" stroke-width="2">
+                    <circle cx="22" cy="22" r="6" stroke-opacity="0">
+                        <animate attributeName="r" begin="1.5s" dur="3s" values="6;22" calcMode="linear" repeatCount="indefinite"/>
+                        <animate attributeName="stroke-opacity" begin="1.5s" dur="3s" values="1;0" calcMode="linear" repeatCount="indefinite"/>
+                        <animate attributeName="stroke-width" begin="1.5s" dur="3s" values="2;0" calcMode="linear" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="22" cy="22" r="6" stroke-opacity="0">
+                        <animate attributeName="r" begin="3s" dur="3s" values="6;22" calcMode="linear" repeatCount="indefinite"/>
+                        <animate attributeName="stroke-opacity" begin="3s" dur="3s" values="1;0" calcMode="linear" repeatCount="indefinite"/>
+                        <animate attributeName="stroke-width" begin="3s" dur="3s" values="2;0" calcMode="linear" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="22" cy="22" r="8">
+                        <animate attributeName="r" begin="0s" dur="1.5s" values="6;1;2;3;4;5;6" calcMode="linear" repeatCount="indefinite"/>
+                    </circle>
+                </g>
+            </svg>
+        </div>
+
+        <div class="deme__exp">
+
+            <div class="swiper-container demo__swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide flow">
+                        <h3>Breaks</h3>
+                        <img src="https://unsplash.it/id/1077/500/160" alt="">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <a href="#contact" class="button button__blue">Contact</a>
+                    </div>
+                    <div class="swiper-slide flow">
+                        <h3>Spokes</h3>
+                        <img src="https://unsplash.it/id/1077/500/160" alt="">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <a href="#contact" class="button button__blue">Contact</a>
+                    </div>
+                    <div class="swiper-slide flow">
+                        <h3>Gears</h3>
+                        <img src="https://unsplash.it/id/1077/500/160" alt="">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <a href="#contact" class="button button__blue">Contact</a>
+                    </div>
+                    <div class="swiper-slide flow">
+                        <h3>Pedals</h3>
+                        <img src="https://unsplash.it/id/1077/500/160" alt="">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <a href="#contact" class="button button__blue">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<div class="spacer"></div>
+
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="/machine/scripts.js" type="text/babel" data-type="module"></script>
+</body>
+</html>
